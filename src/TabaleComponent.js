@@ -205,9 +205,11 @@ class TabaleComponent extends Component {
                           {...paginationTableProps}
                           {...props.baseProps}
                           columns={columns}
+                          headerWrapperClasses='thead'
                           filterPosition={"top"}
                           filter={filterFactory()}
                           hover
+                          bordered={false}
                           selectRow={selectRow}
                         />
                       </div>
