@@ -14,6 +14,7 @@ import ToolkitProvider, {
   Search,
 } from "react-bootstrap-table2-toolkit";
 import ExportExcel from "./ExportExcel";
+import DatePicker from "./DatePicker";
 import "./Table.css";
 const { SearchBar } = Search;
 
@@ -164,18 +165,26 @@ class TabaleComponent extends Component {
                     <div>
                       <div
                         style={{
+                          float: "left",
+                          padding: "15px",
+                        }}
+                      >
+                        <DatePicker />
+                      </div>
+                      <div
+                        style={{
                           float: "right",
                           padding: "15px",
                         }}
                       >
-                        <label>Filter : </label>
+                        <label>Filter : &nbsp;</label>
 
                         <SearchBar
                           {...props.searchProps}
                           className='custome-search-field'
                           //   style={{ color: "white" }}
                           delay={1000}
-                          placeholder='Filter By...'
+                          placeholder='Filter by...'
                         />
                       </div>
                       <div
@@ -192,12 +201,15 @@ class TabaleComponent extends Component {
                           padding: "15px",
                         }}
                       >
-                        <ExportExcel dataSet={products} columns={columns} />
+                        <ExportExcel
+                          key={1}
+                          dataSet={products}
+                          columns={columns}
+                        />
                         {/* <ExportCSVButton {...props.csvProps}>
                           DOWNLOAD XLS
                         </ExportCSVButton> */}
                       </div>
-
                       <div>
                         <BootstrapTable
                           ref={(n) => (this.node = n)}
@@ -217,8 +229,8 @@ class TabaleComponent extends Component {
                       <div
                         style={{
                           margin: "-12px",
-                          "margin-top": "-20px",
-                          "margin-right": "0px",
+                          marginTop: "-20px",
+                          marginRight: "0px",
                           float: "right",
                         }}
                       >

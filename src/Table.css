@@ -1,3 +1,17 @@
 .thead {
   background-color: #deecf7;
 }
+#dates {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#reportrange {
+  background: #fff;
+  cursor: pointer;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 100%;
+}
