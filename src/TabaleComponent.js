@@ -10,12 +10,12 @@ import filterFactory, {
   Comparator,
 } from "react-bootstrap-table2-filter";
 import ToolkitProvider, {
-  CSVExport,
+  // CSVExport,
   Search,
 } from "react-bootstrap-table2-toolkit";
+import ExportExcel from "./ExportExcel";
 import "./Table.css";
 const { SearchBar } = Search;
-const { ExportCSVButton } = CSVExport;
 
 const CaptionElement = () => (
   <h3
@@ -154,7 +154,7 @@ class TabaleComponent extends Component {
           headerClasses='header-class'
           bootstrap4={true}
           search
-          exportCSV={{ fileName: "download.csv" }}
+          exportCSV={{ fileName: "ePCN-CSV-Data.csv" }}
         >
           {(props) => (
             <div className='row'>
@@ -192,9 +192,10 @@ class TabaleComponent extends Component {
                           padding: "15px",
                         }}
                       >
-                        <ExportCSVButton {...props.csvProps}>
+                        <ExportExcel dataSet={products} columns={columns} />
+                        {/* <ExportCSVButton {...props.csvProps}>
                           DOWNLOAD XLS
-                        </ExportCSVButton>
+                        </ExportCSVButton> */}
                       </div>
 
                       <div>
