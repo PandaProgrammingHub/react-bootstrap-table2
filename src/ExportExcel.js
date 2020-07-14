@@ -12,11 +12,9 @@ const ExportExcel = (props) => {
       //   props.onExport();
     };
     return (
-      <div>
-        <button type='button' className='btn btn-default' onClick={handleClick}>
-          DOWNLOAD XLS
-        </button>
-      </div>
+      <button type='button' className='btn btn-default' onClick={handleClick}>
+        DOWNLOAD XLS
+      </button>
     );
   };
   return (

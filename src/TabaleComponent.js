@@ -37,11 +37,11 @@ const ExportCSV = (props) => {
     props.onExport();
   };
   return (
-    <div>
+    <span>
       <button type='button' className='btn btn-default' onClick={handleClick}>
         DOWNLOAD CSV
       </button>
-    </div>
+    </span>
   );
 };
 class TabaleComponent extends Component {
@@ -159,57 +159,30 @@ class TabaleComponent extends Component {
         >
           {(props) => (
             <div className='row'>
-              <div className='col-lg-12'>
+              <div className='col-md-12'>
                 <PaginationProvider pagination={paginationFactory(options)}>
                   {({ paginationProps, paginationTableProps }) => (
                     <div>
-                      <div
-                        style={{
-                          float: "left",
-                          padding: "15px",
-                        }}
-                      >
+                      <div className='btn-list'>
                         <DatePicker />
-                      </div>
-                      <div
-                        style={{
-                          float: "right",
-                          padding: "15px",
-                        }}
-                      >
-                        <label>Filter : &nbsp;</label>
+                        <div>
+                          <label>Filter : &nbsp;</label>
 
-                        <SearchBar
-                          {...props.searchProps}
-                          className='custome-search-field'
-                          //   style={{ color: "white" }}
-                          delay={1000}
-                          placeholder='Filter by...'
-                        />
-                      </div>
-                      <div
-                        style={{
-                          float: "right",
-                          padding: "15px",
-                        }}
-                      >
-                        <ExportCSV {...props.csvProps} />
-                      </div>
-                      <div
-                        style={{
-                          float: "right",
-                          padding: "15px",
-                        }}
-                      >
+                          <SearchBar
+                            {...props.searchProps}
+                            className='custome-search-field'
+                            delay={1000}
+                            placeholder='Filter by...'
+                          />
+                        </div>
+                        <ExportCSV {...props.csvProps} /> &nbsp; &nbsp;
                         <ExportExcel
                           key={1}
                           dataSet={products}
                           columns={columns}
                         />
-                        {/* <ExportCSVButton {...props.csvProps}>
-                          DOWNLOAD XLS
-                        </ExportCSVButton> */}
                       </div>
+
                       <div>
                         <BootstrapTable
                           ref={(n) => (this.node = n)}
@@ -218,10 +191,11 @@ class TabaleComponent extends Component {
                           {...paginationTableProps}
                           {...props.baseProps}
                           columns={columns}
-                          headerWrapperClasses='thead'
+                          classes='comparisonTable table table-bordered table-striped'
+                          bootstrap4={true}
+                          wrapperClasses='table-responsive'
                           filterPosition={"top"}
                           filter={filterFactory()}
-                          hover
                           bordered={false}
                           selectRow={selectRow}
                         />
